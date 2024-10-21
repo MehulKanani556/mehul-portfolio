@@ -26,8 +26,10 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
-    "@babel/core": "^7.16.0",
-    "@babel/preset-env": "^7.16.0"
+    "@babel/core": "^7.24.9",
+    "@babel/plugin-proposal-optional-chaining": "^7.21.0",
+    "@babel/preset-env": "^7.24.8",
+    "typescript": "^5.5.3"
   },
   "eslintConfig": {
     "extends": [
