@@ -7,16 +7,24 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import Home from './Component/Home';
 import About from './Component/About';
+import Skill from './Component/Skill';
+import Work from './Component/Work';
+import Contact from './Component/Contact';
+import Footer from './Component/Footer';
+
 export default function App() {
   return (
     <div className='app'>
       <Header />
       <Background />
       <div className="content">
-        {/* <Home /> */}
+        <Home />
         <About />
+        <Skill />
+        <Work />
+        <Contact />
+        <Footer />
       </div>
-      {/* <Home /> */}
     </div>
   )
 }

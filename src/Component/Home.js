@@ -1,13 +1,55 @@
-
-import React from 'react';
+import React, { useEffect, useState } from 'react'; // Added useEffect and useState
 import { RiDownloadLine } from 'react-icons/ri';
 
 function Home() {
+    const [scrollY, setScrollY] = useState(0); // State to track scroll position
+    const [bgColor, setBgColor] = useState('transparent'); // State for background color
+    const [displayedText, setDisplayedText] = useState(''); // State for typing effect
+    const fullText = " Mehul Kanani"; // Full text to display
+    const [isDeleting, setIsDeleting] = useState(false); // State to track if we are deleting
+    const [index, setIndex] = useState(0); // Index to track the current character
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setScrollY(window.scrollY); // Update scroll position
+            // Change background color based on scroll position
+            const newColor = scrollY > 100 ? 'rgba(255, 255, 255, 0.8)' : 'transparent';
+            setBgColor(newColor);
+        };
+
+        window.addEventListener('scroll', handleScroll); // Add scroll event listener
+        return () => {
+            window.removeEventListener('scroll', handleScroll); // Cleanup on unmount
+        };
+    }, [scrollY]); // Added scrollY as a dependency
+
+    useEffect(() => {
+        const typingInterval = setInterval(() => {
+            if (!isDeleting) {
+                if (index < fullText.length) {
+                    setDisplayedText((prev) => prev + fullText[index]); // Add next character
+                    setIndex((prev) => prev + 1); // Move to the next character
+                } else {
+                    setIsDeleting(true); // Start deleting after full text is displayed
+                }
+            } else {
+                if (index > 0) {
+                    setDisplayedText((prev) => prev.slice(0, -1)); // Remove last character
+                    setIndex((prev) => prev - 1); // Move back to the previous character
+                } else {
+                    setIsDeleting(false); // Start typing again
+                }
+            }
+        }, 200); // Typing speed in milliseconds
+
+        return () => clearInterval(typingInterval); // Cleanup on unmount
+    }, [isDeleting, index]); // Dependencies include isDeleting and index
+
     return (
-        <div className="home-section container" id="Home">
+        <div className="home-section container" id="Home" style={{ backgroundColor: bgColor }}>
             <div className="text-center">
-                <h1 className="name">I am Mehul Kanani</h1>
-                <h2 className="title">Full Stack Developer</h2>
+                <h1 className="name">I am{displayedText}</h1> 
+                <h2 className="title mt-3">Full Stack Developer</h2>
                 <p className="description">
                     I’m a full stack developer (React.js & Node.js) with a focus on creating (and occasionally designing) exceptional digital experiences that are fast, accessible, visually appealing, and responsive. Even though I have been creating web applications for over 7 years, I still love it as if it was something new.
                 </p>
@@ -15,7 +57,7 @@ function Home() {
                     <a href="#" className="btn  download-cv"><span className='me-3'><RiDownloadLine /></span>Download CV</a>
                     <div className='social-media'>
                         <a target='_blank' href="https://www.linkedin.com/in/mehul-kanani-b2a517226/">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M14 10.2501C14.9946 10.2501 15.9484 10.6452 16.6517 11.3485C17.3549 12.0517 17.75 13.0056 17.75 14.0001V18.4168H15.5833V14.0001C15.5833 13.5802 15.4165 13.1775 15.1196 12.8805C14.8227 12.5836 14.4199 12.4168 14 12.4168C13.5801 12.4168 13.1773 12.5836 12.8804 12.8805C12.5835 13.1775 12.4167 13.5802 12.4167 14.0001V18.4168H10.25V14.0001C10.25 13.0056 10.6451 12.0517 11.3483 11.3485C12.0516 10.6452 13.0054 10.2501 14 10.2501Z" stroke="url(#paint0_linear_9_5840)" stroke-width="0.5" />
                                 <path d="M6.25 18.4166V10.9166H8.41667V18.4166H6.25Z" stroke="url(#paint1_linear_9_5840)" stroke-width="0.5" />
                                 <path d="M8.41667 7.33333C8.41667 7.93164 7.93164 8.41667 7.33333 8.41667C6.73502 8.41667 6.25 7.93164 6.25 7.33333C6.25 6.73502 6.73502 6.25 7.33333 6.25C7.93164 6.25 8.41667 6.73502 8.41667 7.33333Z" stroke="url(#paint2_linear_9_5840)" stroke-width="0.5" />
@@ -42,7 +84,7 @@ function Home() {
 
                         </a>
                         <a target='_blank' href="https://github.com/MehulKanani556">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <mask id="path-1-inside-1_9_5847" fill="white">
                                     <path d="M10.3898 16.0445C7.82569 16.8138 7.82569 14.7625 6.80005 14.5061L10.3898 16.0445ZM13.9795 17.583V15.5984C13.9988 15.3539 13.9657 15.108 13.8826 14.8773C13.7995 14.6465 13.6682 14.436 13.4975 14.2599C15.1077 14.0804 16.8 13.4702 16.8 10.6702C16.7999 9.9542 16.5245 9.26567 16.0308 8.74711C16.2646 8.1207 16.2481 7.42831 15.9847 6.81377C15.9847 6.81377 15.3795 6.63429 13.9795 7.57275C12.8042 7.2542 11.5652 7.2542 10.3898 7.57275C8.98979 6.63429 8.38466 6.81377 8.38466 6.81377C8.12127 7.42831 8.10474 8.1207 8.33851 8.74711C7.84114 9.26952 7.56545 9.96427 7.56928 10.6856C7.56928 13.4651 9.26159 14.0753 10.8718 14.2753C10.7031 14.4497 10.573 14.6576 10.49 14.8855C10.4069 15.1135 10.3728 15.3564 10.3898 15.5984V17.583" />
                                 </mask>
@@ -69,4 +111,3 @@ function Home() {
 }
 
 export default Home;
-

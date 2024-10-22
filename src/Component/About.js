@@ -42,7 +42,7 @@ const About = () => {
     ];
 
     return (
-        <div className="container  my-5">
+        <div className="container  my-5" id="About">
             <h2 className="mb-4 title text-center">About me</h2>
             <ul >
                 {/* Map over the aboutInfo array to render paragraphs */}
