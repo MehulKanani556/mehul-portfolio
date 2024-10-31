@@ -4,17 +4,18 @@ import React from 'react';
 import logo from '../assets/logo.png'
 const Footer = () => {
     return (
-        <footer className="footer">
+        <footer className="footer scroll-animate">
             <div className="footer-content">
                 <div className="logo">
                     <img width={50} src={logo} alt="" />
                     </div>
                 <nav className="footer-nav">
-                    <a href="#about">About</a>
-                    <a href="#skills">Skills</a>
-                    <a href="#work">Work</a>
-                    <a href="#testimonial">Testimonial</a>
-                    <a href="#contact">Contact</a>
+                    {/* <a href="#Home">Home</a> */}
+                    <a href="#About">About</a>
+                    <a href="#Skills">Skills</a>
+                    <a href="#Work">Work</a>
+                    {/* <a href="#testimonial">Testimonial</a> */}
+                    <a href="#Contact">Contact</a>
                 </nav>
             </div>
         </footer>

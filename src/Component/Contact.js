@@ -21,7 +21,9 @@ const Contact = () => {
     };
 
     return (
-        <div className="contact-container" id="Contact">
+        <section className=" contact scroll-animate" id="Contact">
+            <div className="contact-container">
+
             <h1 className='title'>Contact Me</h1>
             <p>Let's get in touch and make magic together!</p>
             <form onSubmit={handleSubmit}>
@@ -58,7 +60,9 @@ const Contact = () => {
                 />
                 <button type="submit">Send Message</button>
             </form>
-        </div>
+            </div>
+
+        </section>
     );
 };
 

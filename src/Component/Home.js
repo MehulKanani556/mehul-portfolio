@@ -5,9 +5,10 @@ function Home() {
     const [scrollY, setScrollY] = useState(0); // State to track scroll position
     const [bgColor, setBgColor] = useState('transparent'); // State for background color
     const [displayedText, setDisplayedText] = useState(''); // State for typing effect
-    const fullText = " Mehul Kanani"; // Full text to display
+    const fullText = "ull Stack Developer"; // Full text to display
     const [isDeleting, setIsDeleting] = useState(false); // State to track if we are deleting
     const [index, setIndex] = useState(0); // Index to track the current character
+    const [activeSection, setActiveSection] = useState('Home'); // State to track active section
 
     useEffect(() => {
         const handleScroll = () => {
@@ -15,6 +16,15 @@ function Home() {
             // Change background color based on scroll position
             const newColor = scrollY > 100 ? 'rgba(255, 255, 255, 0.8)' : 'transparent';
             setBgColor(newColor);
+            
+            // Determine active section based on scroll position
+            if (scrollY < 500) {
+                setActiveSection('Home');
+            } else if (scrollY >= 500 && scrollY < 1000) {
+                setActiveSection('About');
+            } else {
+                setActiveSection('Contact');
+            }
         };
 
         window.addEventListener('scroll', handleScroll); // Add scroll event listener
@@ -46,10 +56,11 @@ function Home() {
     }, [isDeleting, index]); // Dependencies include isDeleting and index
 
     return (
-        <div className="home-section container" id="Home" style={{ backgroundColor: bgColor }}>
+            <section className="home-section home container scroll-animate " id="Home" style={{ backgroundColor: bgColor }}>
+            
             <div className="text-center">
-                <h1 className="name">I am{displayedText}</h1> 
-                <h2 className="title mt-3">Full Stack Developer</h2>
+                <h1 className="name">I am Mehul Kanani</h1> 
+                <h2 className="title mt-3"> F{displayedText}</h2>
                 <p className="description">
                     I’m a full stack developer (React.js & Node.js) with a focus on creating (and occasionally designing) exceptional digital experiences that are fast, accessible, visually appealing, and responsive. Even though I have been creating web applications for over 7 years, I still love it as if it was something new.
                 </p>
@@ -106,7 +117,7 @@ function Home() {
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     );
 }
 
