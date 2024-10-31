@@ -20,7 +20,7 @@
 #   status = 200
 [build]
   # Your build command
-  command = "npm install --legacy-peer-deps  && npm run build"
+  # command = "npm install --legacy-peer-deps  && npm run build"
 
   # Directory that includes your static HTML files
   publish = "build/"
