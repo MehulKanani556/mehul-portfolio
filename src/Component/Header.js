@@ -50,7 +50,7 @@ const Header = () => {
     return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-black sticky-top">
             <div className="container d-flex justify-content-between">
-                <a className="navbar-brand" href="#" onClick={scrollToTop}>
+                <a className="navbar-brand" href="#Home" onClick={scrollToTop}>
                     <img src={logo} width={50} alt="Logo" />
                 </a>
                 <button

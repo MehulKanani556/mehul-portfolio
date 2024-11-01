@@ -355,8 +355,8 @@ body {
   border-radius: 8px;
   /*padding: 10px;
   */object-fit: contain;
-  filter: drop-shadow(0 0 5px #4361EE);
-  -webkit-filter: drop-shadow(0 0 5px #4361EE);
+  filter: drop-shadow(0 0 5px #4362ee3f);
+  -webkit-filter: drop-shadow(0 0 5px #4362ee3f);
 }
 
 
@@ -449,7 +449,7 @@ body {
 
 /* src/Component/Footer.css */
 .footer {
-  background-color: rgba(0, 0, 0, 1);
+  background-color: rgba(0, 0, 0, 0.7);
   color: white;
   padding: 20px 0;
   text-align: center;
