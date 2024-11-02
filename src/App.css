@@ -58,10 +58,10 @@ body {
 
 .nav-link {
   position: relative;
-  color: #00aaff;
+  /* color: #00aaff; */
   transition: color 0.3s;
   padding: 0 0.5rem;
-  font-size: 1.5rem;
+  /* font-size: 1.5rem; */
   margin: 5px;
   cursor: pointer;
 }
