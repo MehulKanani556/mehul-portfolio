@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useSnackbar } from 'notistack'; // Import useSnackbar from notistack
 // import './Contact.css'; // Import the CSS file
 
 const Contact = () => {
@@ -9,19 +10,44 @@ const Contact = () => {
         message: ''
     });
 
+    const { enqueueSnackbar } = useSnackbar(); // Initialize enqueueSnackbar
+
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        // Handle form submission logic here
-        console.log(formData);
+        // Send form data to Google Sheets
+        const response = await fetch('https://script.google.com/macros/s/AKfycbxjjMXbF9TDx_nDGwh073FQIUgKcbfBihaPYhgWC_HIvo_Q4-8pO5Tvmj_GSfTGrLAy/exec', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formData),
+            mode: 'no-cors'
+        });
+        console.log(response)
+
+        if (response) {
+            console.log('Data sent successfully');
+            enqueueSnackbar('Your message has been sent successfully!', { variant: 'success' }); // Show success notification
+            // Optionally reset the form
+            setFormData({
+                firstName: '',
+                lastName: '',
+                email: '',
+                message: ''
+            });
+        } else {
+            enqueueSnackbar('Error sending message. Please try again.', { variant: 'error' }); // Show error notification
+            console.error('Error sending data');
+        }
     };
 
     return (
-        <section className=" contact scroll-animate" id="Contact">
+        <section className="contact scroll-animate" id="Contact">
             <div className="contact-container">
 
             <h1 className='title'>Contact Me</h1>

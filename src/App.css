@@ -1012,3 +1012,10 @@ body {
     opacity: 0;
   }
 }
+
+input:-internal-autofill-selected {
+  appearance: menulist-button;
+  background-image: none !important;
+  background-color: #333 !important;
+  color: fieldtext !important;
+}

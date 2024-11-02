@@ -12,6 +12,7 @@ import Work from './Component/Work';
 import Contact from './Component/Contact';
 import Footer from './Component/Footer';
 import LoadingScreen from './Component/LoadingScreen';
+import { SnackbarProvider } from 'notistack';
 
 export default function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -30,7 +31,7 @@ export default function App() {
   }, [isLoading]);
 
   return (
-    <>
+    <SnackbarProvider maxSnack={3}>
       <LoadingScreen onLoadingComplete={() => setIsLoading(false)} />
       <div className={`app ${isLoading ? 'opacity-0' : 'opacity-100 transition-opacity duration-500'}`}>
         <Header />
@@ -44,7 +45,7 @@ export default function App() {
           <Footer />
         </div>
       </div>
-    </>
+    </SnackbarProvider>
   )
 }
 
