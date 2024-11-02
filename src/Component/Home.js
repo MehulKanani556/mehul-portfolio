@@ -62,7 +62,7 @@ function Home() {
                 <h1 className="name">I am Mehul Kanani</h1> 
                 <h2 className="title mt-3"> F{displayedText}</h2>
                 <p className="description">
-                    I’m a full stack developer (React.js & Node.js) with a focus on creating (and occasionally designing) exceptional digital experiences that are fast, accessible, visually appealing, and responsive. Even though I have been creating web applications for over 7 years, I still love it as if it was something new.
+                    I’m a full stack developer (React.js & Node.js) with a focus on creating (and occasionally designing) exceptional digital experiences that are fast, accessible, visually appealing, and responsive. Even though I have been creating web applications for over 6 months, I still love it as if it was something new.
                 </p>
                 <div className='d-flex justify-content-center'>
                     <a href="#" className="btn  download-cv"><span className='me-3'><RiDownloadLine /></span>Download CV</a>
