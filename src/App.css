@@ -6,7 +6,9 @@ body {
   margin: 0;
   scroll-behavior: smooth;
 }
-
+body {
+  cursor: none !important;
+}
 .anim {
   width: 100vw;
   height: 100vh;
@@ -63,7 +65,7 @@ body {
   padding: 0 0.5rem;
   /* font-size: 1.5rem; */
   margin: 5px;
-  cursor: pointer;
+  /* cursor: pointer; */
 }
 
 .nav-link::before {
@@ -107,7 +109,7 @@ body {
 .nav-link.active {
   color: #0077ff !important;
   font-weight: bold;
-  cursor: pointer;
+  /* cursor: pointer; */
 }
 
 .navbar-brand img {
@@ -432,7 +434,7 @@ body {
   color: #fff;
   border: none;
   border-radius: 4px;
-  cursor: pointer;
+  /* cursor: pointer; */
 }
 
 .contact-container button:hover {
@@ -833,7 +835,7 @@ body {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  cursor: default;
+  /* cursor: default; */
 }
 
 #load div {
@@ -1019,3 +1021,6 @@ input:-internal-autofill-selected {
   background-color: #333 !important;
   color: fieldtext !important;
 }
+
+
+

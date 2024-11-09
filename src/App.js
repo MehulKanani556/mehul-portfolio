@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import Background from './Component/Background'
 import './App.css';
 import Header from './Component/Header';
@@ -13,9 +13,12 @@ import Contact from './Component/Contact';
 import Footer from './Component/Footer';
 import LoadingScreen from './Component/LoadingScreen';
 import { SnackbarProvider } from 'notistack';
+import { MouseContext } from "./context/mouse-context";
+import DotRing from './Component/DotRing';
 
 export default function App() {
   const [isLoading, setIsLoading] = useState(true);
+  const { cursorType, cursorChangeHandler } = useContext(MouseContext);
 
   useEffect(() => {
     const initAnimations = () => {
@@ -30,21 +33,40 @@ export default function App() {
     }
   }, [isLoading]);
 
+  useEffect(() => {
+    console.log("Cursor Type:", cursorType);
+  }, [cursorType]);
+
   return (
     <SnackbarProvider maxSnack={3}>
       <LoadingScreen onLoadingComplete={() => setIsLoading(false)} />
+      <DotRing />
       <div className={`app ${isLoading ? 'opacity-0' : 'opacity-100 transition-opacity duration-500'}`}>
-        <Header />
-        <Background />
-        <div className="content">
-          <Home />
-          <About />
-          <Skill />
-          <Work />
-          <Contact />
-          <Footer />
+        <div
+          onMouseEnter={() => {
+            console.log("Mouse Entered");
+            cursorChangeHandler("hovered");
+          }}
+          onMouseLeave={() => {
+            console.log("Mouse Left");
+            cursorChangeHandler("");
+          }}
+        >
+
+          <div className="container" style={{ background: "peachpuff" }}></div>
+          <Header />
+          <Background />
+          <div className="content">
+            <Home />
+            <About />
+            <Skill />
+            <Work />
+            <Contact />
+            <Footer />
+          </div>
         </div>
       </div>
+
     </SnackbarProvider>
   )
 }
@@ -85,7 +107,7 @@ const animationController = {
             const speed = element.getAttribute('data-speed') || 0.5;
             const rect = element.getBoundingClientRect();
             const scrolled = window.pageYOffset;
-            
+
             const offset = (scrolled - rect.top) * speed;
             element.style.setProperty('--scroll-offset', `${offset}px`);
           });
@@ -107,7 +129,7 @@ const animationController = {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
-          
+
           // Handle progress-based animations
           if (entry.intersectionRatio > 0) {
             const progress = entry.intersectionRatio;
