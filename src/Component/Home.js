@@ -2,70 +2,51 @@ import React, { useEffect, useState } from 'react'; // Added useEffect and useSt
 import { RiDownloadLine } from 'react-icons/ri';
 
 function Home() {
-    const [scrollY, setScrollY] = useState(0); // State to track scroll position
-    const [bgColor, setBgColor] = useState('transparent'); // State for background color
-    const [displayedText, setDisplayedText] = useState(''); // State for typing effect
-    const fullText = "ull Stack Developer"; // Full text to display
+    const [displayedText, setDisplayedText] = useState('I am '); // Initial text
+    const fullText1 = " Mehul Kanani"; // First text to display
+    const fullText2 = " Full Stack Developer"; // Second text to display
     const [isDeleting, setIsDeleting] = useState(false); // State to track if we are deleting
     const [index, setIndex] = useState(0); // Index to track the current character
-    const [activeSection, setActiveSection] = useState('Home'); // State to track active section
-
-    useEffect(() => {
-        const handleScroll = () => {
-            setScrollY(window.scrollY); // Update scroll position
-            // Change background color based on scroll position
-            const newColor = scrollY > 100 ? 'rgba(255, 255, 255, 0.8)' : 'transparent';
-            setBgColor(newColor);
-            
-            // Determine active section based on scroll position
-            if (scrollY < 500) {
-                setActiveSection('Home');
-            } else if (scrollY >= 500 && scrollY < 1000) {
-                setActiveSection('About');
-            } else {
-                setActiveSection('Contact');
-            }
-        };
-
-        window.addEventListener('scroll', handleScroll); // Add scroll event listener
-        return () => {
-            window.removeEventListener('scroll', handleScroll); // Cleanup on unmount
-        };
-    }, [scrollY]); // Added scrollY as a dependency
+    const [currentText, setCurrentText] = useState(fullText1); // Track which text is currently being displayed
 
     useEffect(() => {
         const typingInterval = setInterval(() => {
             if (!isDeleting) {
-                if (index < fullText.length) {
-                    setDisplayedText((prev) => prev + fullText[index]); // Add next character
+                if (index < currentText.length) {
+                    // Typing effect
+                    setDisplayedText((prev) => prev + currentText[index]);
                     setIndex((prev) => prev + 1); // Move to the next character
                 } else {
-                    setIsDeleting(true); // Start deleting after full text is displayed
+                    // Start deleting after full text is displayed
+                    setIsDeleting(true);
                 }
             } else {
                 if (index > 0) {
+                    // Deleting effect
                     setDisplayedText((prev) => prev.slice(0, -1)); // Remove last character
                     setIndex((prev) => prev - 1); // Move back to the previous character
                 } else {
+                    // Switch to the next text after deleting the current one
                     setIsDeleting(false); // Start typing again
+                    setCurrentText(currentText === fullText1 ? fullText2 : fullText1); // Toggle between texts
+                    setIndex(0); // Reset index for new text
                 }
             }
         }, 200); // Typing speed in milliseconds
 
         return () => clearInterval(typingInterval); // Cleanup on unmount
-    }, [isDeleting, index]); // Dependencies include isDeleting and index
+    }, [isDeleting, index, currentText]); // Dependencies include isDeleting, index, and currentText
 
     return (
-            <section className="home-section home container scroll-animate " id="Home" style={{ backgroundColor: bgColor }}>
-            
+        <section className="home-section home container scroll-animate" id="Home">
             <div className="text-center">
-                <h1 className="name">I am Mehul Kanani</h1> 
-                <h2 className="title mt-3"> F{displayedText}</h2>
+                {/* <h1 className="name">I am Mehul Kanani</h1> */}
+                <h2 className="title mt-3">{displayedText}</h2>
                 <p className="description">
                     I’m a full stack developer (React.js & Node.js) with a focus on creating (and occasionally designing) exceptional digital experiences that are fast, accessible, visually appealing, and responsive. Even though I have been creating web applications for over 6 months, I still love it as if it was something new.
                 </p>
                 <div className='d-flex justify-content-center'>
-                    <a href="#" className="btn  download-cv"><span className='me-3'><RiDownloadLine /></span>Download CV</a>
+                    <a href="#" className="btn download-cv"><span className='me-3'><RiDownloadLine /></span>Download CV</a>
                     <div className='social-media'>
                         <a target='_blank' href="https://www.linkedin.com/in/mehul-kanani-b2a517226/">
                             <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
