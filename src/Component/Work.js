@@ -4,8 +4,8 @@ import food from '../assets/food.png'
 import { HiMiniArrowTopRightOnSquare } from 'react-icons/hi2';
 const Work = () => {
     const works = [
-        { title: "Restaurant Dashboard", description: "The Restaurant Admin Panel is an intuitive management tool designed for restaurant owners and managers. It streamlines operations by allowing users to manage menus, track orders, optimize table arrangements, oversee staff, and analyze sales performance—all from a single platform.", image: restaurent,link:"https://commada.netlify.app/" },
-        { title: "Food Odering", description: "A streamlined platform for ordering food from a single restaurant. Users can browse the menu, place orders, and make secure payments while managing their profiles and viewing order history. Administrators can add menu items,  and access user profiles, ensuring efficient restaurant management.", image: food,link:"https://food-mehul.netlify.app/" },
+        { title: "Restaurant Dashboard", description: "An intuitive management tool for restaurants, streamlining operations by allowing users to manage menus, track orders, and analyze sales performance from a single platform.", image: restaurent,link:"https://commada.netlify.app/" },
+        { title: "Food Odering", description: "A streamlined platform for ordering food, allowing users to browse menus, place orders, and make secure payments, while administrators manage menu items and user profiles.", image: food,link:"https://food-mehul.netlify.app/" },
         // { title: "Restaurant Dashboard", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", image: restaurent },
         // { title: "Restaurant Dashboard", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", image: restaurent },
     ];
@@ -40,7 +40,7 @@ const Work = () => {
 
     return (
       <div 
-        className='col-md-6 p-1 d-flex'
+        className='col-md-6 p-3 d-flex'
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
       >
@@ -82,14 +82,14 @@ const Work = () => {
   };
 
   return (
-    <div className="recent-works work container scroll-animate flip-y" id="Work">
+    <section className="recent-works work container scroll-animate flip-y" id="Work">
       <h1 className='title text-center'>Recent Works</h1>
       <div className="works-grid row">
         {works.map((work, index) => (
           <CardWithTilt key={index} work={work} index={index} />
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 

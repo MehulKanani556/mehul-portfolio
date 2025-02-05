@@ -4,77 +4,63 @@ import { Link, animateScroll as scroll } from 'react-scroll';
 
 const Header = () => {
     const [activeLink, setActiveLink] = useState('Home');
-    console.log(window.scrollY); // Check initial scroll position
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     useEffect(() => {
-        const handleScroll = () => {
-            console.log("Scroll event triggered");
-            const sections = document.querySelectorAll('section[id]');
-            const scrollPosition = window.scrollY + 150; // Offset for header height
-            console.log("Current scroll position:", scrollPosition);
+        // Set up intersection observer
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        setActiveLink(entry.target.id);
+                    }
+                });
+            },
+            { threshold: 0.5 }
+        );
 
-            let newActiveLink = 'Home'; // Default to Home
-            sections.forEach((section) => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.offsetHeight;
-                const sectionId = section.getAttribute('id');
+        // Observe all sections
+        document.querySelectorAll('section').forEach((section) => {
+            observer.observe(section);
+        });
 
-                if (
-                    scrollPosition >= sectionTop &&
-                    scrollPosition < sectionTop + sectionHeight
-                ) {
-                    newActiveLink = sectionId; // Update new active link
-                }
+        return () => observer.disconnect();
+    }, []);
+
+    const handleNavClick = (sectionId) => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+            window.scrollTo({
+                top: element.offsetTop - 60,
+                behavior: 'smooth'
             });
-
-            if (newActiveLink !== activeLink) {
-                console.log("Active section:", newActiveLink);
-                setActiveLink(newActiveLink);
-            }
-        };
-
-        const optimizedHandleScroll = () => requestAnimationFrame(handleScroll);
-        window.addEventListener('scroll', optimizedHandleScroll);
-        // handleScroll(); // Initial check on load
-
-        return () => window.removeEventListener('scroll', optimizedHandleScroll);
-    }, [activeLink]); // Add activeLink to dependencies
-
-    // handleScroll();
-
-    const scrollToTop = () => {
-        scroll.scrollToTop();
-        setActiveLink('Home');
+            setIsMenuOpen(false);
+        }
     };
 
     return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-black sticky-top">
             <div className="container d-flex justify-content-between">
-                <a className="navbar-brand" href="#Home" onClick={scrollToTop}>
+                <a className="navbar-brand" onClick={() => handleNavClick('Home')}>
                     <img src={logo} width={50} alt="Logo" />
                 </a>
                 <button
                     className="navbar-toggler"
                     type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#navbarNav"
-                    aria-controls="navbarNav"
-                    aria-expanded="false"
-                    aria-label="Toggle navigation"
+                    onClick={() => setIsMenuOpen(!isMenuOpen)}
                 >
                     <span className="navbar-toggler-icon"></span>
                 </button>
-                <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <div className={`collapse navbar-collapse justify-content-end ${isMenuOpen ? 'show' : ''}`}>
                     <ul className="navbar-nav">
                         {['Home', 'About', 'Skills', 'Work', 'Contact'].map((section) => (
                             <li className="nav-item" key={section}>
-                                <a
-                                    href={`#${section}`}
+                                <button
+                                    onClick={() => handleNavClick(section.toLowerCase())}
                                     className={`nav-link ${activeLink === section ? 'active' : ''}`}
-                                    onClick={() => setActiveLink(section)}
                                 >
                                     {section}
-                                </a>
+                                </button>
                             </li>
                         ))}
                     </ul>
@@ -85,3 +71,4 @@ const Header = () => {
 };
 
 export default Header;
+// done

@@ -6,9 +6,11 @@ body {
   margin: 0;
   scroll-behavior: smooth;
 }
+
 body {
   cursor: none !important;
 }
+
 .anim {
   width: 100vw;
   height: 100vh;
@@ -142,7 +144,7 @@ body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   margin-bottom: 20px;
-  margin-top: 50px ;
+  margin-top: 50px;
 }
 
 .description {
@@ -164,6 +166,7 @@ body {
   transition: color 0.3s, border-color 0.3s !important;
   border-radius: 10px !important;
   margin-left: 15px;
+  width: 200px;
 }
 
 .download-cv::before {
@@ -242,7 +245,8 @@ body {
   border-image: linear-gradient(135deg, #00aaff 0%, #4361EE 100%) !important;
   border-image-slice: 1 !important;
   /*width: 90%;
-  */display: flex !important;
+  */
+  display: flex !important;
   transition: transform 0.1s ease-out;
   height: 100% !important;
   -webkit-transition: transform 0.1s ease-out;
@@ -300,7 +304,7 @@ body {
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  gap: 40px;
   margin-top: 20px;
 }
 
@@ -338,8 +342,8 @@ body {
 
 /* ********************************** Work ************************************** */
 
-.recent-works { 
-  color: white;  
+.recent-works {
+  color: white;
   padding: 20px;
 }
 
@@ -356,7 +360,8 @@ body {
   width: 100%;
   border-radius: 8px;
   /*padding: 10px;
-  */object-fit: contain;
+  */
+  object-fit: contain;
   filter: drop-shadow(0 0 5px #4362ee3f);
   -webkit-filter: drop-shadow(0 0 5px #4362ee3f);
 }
@@ -383,7 +388,8 @@ body {
   -ms-transform: scale(1.05);
   -o-transform: scale(1.05);
 }
-.work-text{
+
+.work-text {
   background: linear-gradient(135deg, #00ccff 0%, #4361EE 100%);
   background-clip: text !important;
   -webkit-background-clip: text;
@@ -391,11 +397,13 @@ body {
   font-size: 1.8rem !important;
   font-weight: bold !important;
 }
+
 /* ****************************** Contact ********************************** */
-.contact{
+.contact {
   margin-top: 90px;
 
 }
+
 .contact-container {
   background-color: #1a1a1a;
   color: #ffffff;
@@ -443,8 +451,10 @@ body {
 
 .contact-container input:focus,
 .contact-container textarea:focus {
-    outline: none; /* Remove default outline */
-    border: 2px solid #00aaff; /* Change border color on focus */
+  outline: none;
+  /* Remove default outline */
+  border: 2px solid #00aaff;
+  /* Change border color on focus */
 }
 
 /* ******************************* Footer ************************************ */
@@ -456,7 +466,7 @@ body {
   padding: 20px 0;
   text-align: center;
   margin-top: 50px;
-  
+
 }
 
 .footer-content {
@@ -468,7 +478,8 @@ body {
 .logo {
   font-size: 48px;
   font-weight: bold;
-  color: #00f; /* Change to desired color */
+  color: #00f;
+  /* Change to desired color */
   text-shadow: 0 0 5px rgba(0, 0, 255, 0.7);
 }
 
@@ -485,8 +496,10 @@ body {
 }
 
 .footer-nav a:hover {
-  color: #00f; /* Change to desired hover color */
+  color: #00f;
+  /* Change to desired hover color */
 }
+
 /* *********************************** animation **************************************** */
 .nav-link {
   transition: transform 0.3s ease;
@@ -508,56 +521,84 @@ body {
 }
 
 @keyframes pulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.1); }
-  100% { transform: scale(1); }
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.1);
+  }
+
+  100% {
+    transform: scale(1);
+  }
 }
 
 /* Custom Scrollbar Styles */
 ::-webkit-scrollbar {
-  width: 6px; /* Width of the scrollbar */
+  width: 6px;
+  /* Width of the scrollbar */
 }
 
 ::-webkit-scrollbar-track {
-  background: #1a1a1a; /* Background of the scrollbar track */
+  background: #1a1a1a;
+  /* Background of the scrollbar track */
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #00aaff; /* Color of the scrollbar thumb */
-  border-radius: 10px; /* Rounded corners for the thumb */
+  background: #00aaff;
+  /* Color of the scrollbar thumb */
+  border-radius: 10px;
+  /* Rounded corners for the thumb */
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #0077ff; /* Color of the thumb on hover */
+  background: #0077ff;
+  /* Color of the thumb on hover */
 }
 
 /* For Firefox */
 .scrollable-element {
-  scrollbar-width: thin; /* Makes the scrollbar thinner */
-  scrollbar-color: #00aaff #1a1a1a; /* Thumb color and track color */
+  scrollbar-width: thin;
+  /* Makes the scrollbar thinner */
+  scrollbar-color: #00aaff #1a1a1a;
+  /* Thumb color and track color */
 }
-.about ,.contact ,.home ,.skill ,.work {
+
+.about,
+.contact,
+.home,
+.skill,
+.work {
   min-height: 100vh;
 }
 
 .card-icon {
-  font-size: 2rem; /* Adjust icon size */
-  margin-bottom: 1rem; /* Space between icon and title */
+  font-size: 2rem;
+  /* Adjust icon size */
+  margin-bottom: 1rem;
+  /* Space between icon and title */
 }
 
 @media (max-width: 768px) {
   .card {
-    margin: 0 auto; /* Center cards on smaller screens */
+    margin: 0 auto;
+    /* Center cards on smaller screens */
   }
 }
+
 /* ... existing code ... */
 
 /* Consolidated scroll animation class */
 .scroll-animate {
   opacity: 0;
-  /*Starthidden*/transform: translateX(20px) scale(0.9);
-  /*Startslightlylowerandsmaller*/transition: opacity 0.5s ease, transform 0.5s ease;
-  /*Transitionforanimation*//*Vendorprefixesfortransform*/-webkit-transform: translateX(20px) scale(0.9);
+  /*Starthidden*/
+  transform: translateX(20px) scale(0.9);
+  /*Startslightlylowerandsmaller*/
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  /*Transitionforanimation*/
+  /*Vendorprefixesfortransform*/
+  -webkit-transform: translateX(20px) scale(0.9);
   -moz-transform: translateX(20px) scale(0.9);
   -ms-transform: translateX(20px) scale(0.9);
   -o-transform: translateX(20px) scale(0.9);
@@ -565,8 +606,11 @@ body {
 
 .scroll-animate.visible {
   opacity: 1;
-  /*Fullyvisible*/transform: translateX(0) scale(1);
-  /*Movetooriginalpositionandscaletonormalsize*//*Vendorprefixesfortransform*/-webkit-transform: translateX(0) scale(1);
+  /*Fullyvisible*/
+  transform: translateX(0) scale(1);
+  /*Movetooriginalpositionandscaletonormalsize*/
+  /*Vendorprefixesfortransform*/
+  -webkit-transform: translateX(0) scale(1);
   -moz-transform: translateX(0) scale(1);
   -ms-transform: translateX(0) scale(1);
   -o-transform: translateX(0) scale(1);
@@ -574,11 +618,13 @@ body {
 
 /* Optional: Add a rotation effect */
 .scroll-animate.rotate {
-  transition: transform 0.5s ease; /* Transition for rotation */
+  transition: transform 0.5s ease;
+  /* Transition for rotation */
 }
 
 .scroll-animate.rotate.visible {
-  transform: translateX(0) scale(1) rotate(0deg); /* Rotate to original position */
+  transform: translateX(0) scale(1) rotate(0deg);
+  /* Rotate to original position */
 }
 
 /* new  */
@@ -618,22 +664,36 @@ body {
 }
 
 /* Wave Effect */
-.wave-sequence > * {
+.wave-sequence>* {
   opacity: 0;
   transform: translateY(50px);
   transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.wave-sequence.visible > * {
+.wave-sequence.visible>* {
   opacity: 1;
   transform: translateY(0);
 }
 
-.wave-sequence.visible > *:nth-child(1) { transition-delay: 0.1s; }
-.wave-sequence.visible > *:nth-child(2) { transition-delay: 0.2s; }
-.wave-sequence.visible > *:nth-child(3) { transition-delay: 0.3s; }
-.wave-sequence.visible > *:nth-child(4) { transition-delay: 0.4s; }
-.wave-sequence.visible > *:nth-child(5) { transition-delay: 0.5s; }
+.wave-sequence.visible>*:nth-child(1) {
+  transition-delay: 0.1s;
+}
+
+.wave-sequence.visible>*:nth-child(2) {
+  transition-delay: 0.2s;
+}
+
+.wave-sequence.visible>*:nth-child(3) {
+  transition-delay: 0.3s;
+}
+
+.wave-sequence.visible>*:nth-child(4) {
+  transition-delay: 0.4s;
+}
+
+.wave-sequence.visible>*:nth-child(5) {
+  transition-delay: 0.5s;
+}
 
 /* Split Text Animation */
 .split-text {
@@ -678,22 +738,27 @@ body {
     clip-path: inset(50% 0 30% 0);
     transform: translate(-5px, 5px);
   }
+
   20% {
     clip-path: inset(20% 0 60% 0);
     transform: translate(5px, -5px);
   }
+
   40% {
     clip-path: inset(40% 0 40% 0);
     transform: translate(5px, 5px);
   }
+
   60% {
     clip-path: inset(60% 0 20% 0);
     transform: translate(-5px, -5px);
   }
+
   80% {
     clip-path: inset(30% 0 50% 0);
     transform: translate(-5px, 5px);
   }
+
   100% {
     clip-path: inset(50% 0 30% 0);
     transform: translate(0);
@@ -749,11 +814,25 @@ body {
 
 /* Elastic Bounce */
 @keyframes elasticBounce {
-  0% { transform: scale(0); }
-  55% { transform: scale(1.1); }
-  70% { transform: scale(0.95); }
-  85% { transform: scale(1.05); }
-  100% { transform: scale(1); }
+  0% {
+    transform: scale(0);
+  }
+
+  55% {
+    transform: scale(1.1);
+  }
+
+  70% {
+    transform: scale(0.95);
+  }
+
+  85% {
+    transform: scale(1.05);
+  }
+
+  100% {
+    transform: scale(1);
+  }
 }
 
 .elastic-bounce {
@@ -774,13 +853,29 @@ body {
   transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.parallax-layer-1 { transform: translateZ(-100px) scale(1.5); }
-.parallax-layer-2 { transform: translateZ(-50px) scale(1.25); }
-.parallax-layer-3 { transform: translateZ(0) scale(1); }
+.parallax-layer-1 {
+  transform: translateZ(-100px) scale(1.5);
+}
 
-.parallax-container.visible .parallax-layer-1 { transform: translateZ(0) scale(1); }
-.parallax-container.visible .parallax-layer-2 { transform: translateZ(0) scale(1); }
-.parallax-container.visible .parallax-layer-3 { transform: translateZ(0) scale(1); }
+.parallax-layer-2 {
+  transform: translateZ(-50px) scale(1.25);
+}
+
+.parallax-layer-3 {
+  transform: translateZ(0) scale(1);
+}
+
+.parallax-container.visible .parallax-layer-1 {
+  transform: translateZ(0) scale(1);
+}
+
+.parallax-container.visible .parallax-layer-2 {
+  transform: translateZ(0) scale(1);
+}
+
+.parallax-container.visible .parallax-layer-3 {
+  transform: translateZ(0) scale(1);
+}
 
 /* loading */
 @keyframes float {
@@ -788,9 +883,11 @@ body {
     transform: translateY(0) rotate(0deg);
     opacity: 0;
   }
+
   50% {
     opacity: 0.5;
   }
+
   100% {
     transform: translateY(-100px) rotate(360deg);
     opacity: 0;
@@ -822,7 +919,7 @@ body {
   overflow: hidden;
 }
 
-/* From Uiverse.io by DevPTG */ 
+/* From Uiverse.io by DevPTG */
 #load {
   position: absolute;
   width: 600px;
@@ -1024,3 +1121,13 @@ input:-internal-autofill-selected {
 
 
 
+.btn:hover .ring {
+  width: 70px !important;
+  height: 70px !important;
+}
+
+.btn,
+a,
+button:not(:disabled) {
+  cursor: none !important;
+}

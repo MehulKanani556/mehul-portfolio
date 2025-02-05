@@ -43,7 +43,7 @@ const Skill = () => {
     };
 
     const handleMouseLeave = () => {
-        setTilt({ index: null, x: 0, y: 0, scale: 1 });
+        setTilt({ index: null, x: 0, y: 0, scale: 0.8 });
     };
 
     return (
