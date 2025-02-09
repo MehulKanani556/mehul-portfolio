@@ -22,7 +22,7 @@ const LoadingScreen = ({ onLoadingComplete }) => {
 
   useEffect(() => {
     generateParticles();
-    
+
     // Simulate loading progress
     const timer = setInterval(() => {
       setProgress(prev => {
@@ -47,14 +47,14 @@ const LoadingScreen = ({ onLoadingComplete }) => {
     <div className="loading-container">
       {/* Floating particles */}
       <div id="load">
-  <div>G</div>
-  <div>N</div>
-  <div>I</div>
-  <div>D</div>
-  <div>A</div>
-  <div>O</div>
-  <div>L</div>
-</div>
+        <div>G</div>
+        <div>N</div>
+        <div>I</div>
+        <div>D</div>
+        <div>A</div>
+        <div>O</div>
+        <div>L</div>
+      </div>
     </div>
   );
 };

@@ -46,12 +46,14 @@ function Home() {
                     I’m a full stack developer (React.js & Node.js) with a focus on creating (and occasionally designing) exceptional digital experiences that are fast, accessible, visually appealing, and responsive. Even though I have been creating web applications for over 6 months, I still love it as if it was something new.
                 </p>
                 <div className='d-flex justify-content-center'>
-                    <button className="btn download-cv">
-                        <div className='position-absolute  left-0 z-3 d-flex' style={{ top:'10px' }}>
-                            <span className='me-3'><RiDownloadLine /></span>
-                             Download CV
-                        </div>
-                    </button>
+                    <a href="/assets/Mehul_Kanani_Resume.pdf" className='d-block ' download="Mehul_Kanani_Resume.pdf">
+                        <button className="btn download-cv h-100">
+                            <div className='position-absolute  left-0 z-3 d-flex' style={{ top: '10px' }}>
+                                <span className='me-3'><RiDownloadLine /></span>
+                                Download CV
+                            </div>
+                        </button>
+                    </a>
                     <div className='social-media'>
                         <a target='_blank' href="https://www.linkedin.com/in/mehul-kanani-b2a517226/">
                             <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
