@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'; // Added useEffect and useState
 import { RiDownloadLine } from 'react-icons/ri';
-
 function Home() {
     const [displayedText, setDisplayedText] = useState('I am '); // Initial text
     const fullText1 = " Mehul Kanani"; // First text to display
@@ -37,6 +36,16 @@ function Home() {
         return () => clearInterval(typingInterval); // Cleanup on unmount
     }, [isDeleting, index, currentText]); // Dependencies include isDeleting, index, and currentText
 
+    const handleDownload = () => {
+        const link = document.createElement('a');
+        link.href = '/Mehul_Kanani_Resume.pdf';
+        link.download = 'Mehul_Kanani_Resume.pdf';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        
+    };
+
     return (
         <section className="home-section home container scroll-animate" id="Home">
             <div className="text-center">
@@ -46,7 +55,7 @@ function Home() {
                     I’m a full stack developer (React.js & Node.js) with a focus on creating (and occasionally designing) exceptional digital experiences that are fast, accessible, visually appealing, and responsive. Even though I have been creating web applications for over 6 months, I still love it as if it was something new.
                 </p>
                 <div className='d-flex justify-content-center'>
-                    <a href="/assets/Mehul_Kanani_Resume.pdf" className='d-block ' download="Mehul_Kanani_Resume.pdf">
+                    <a href="#" onClick={handleDownload} className='d-block'>
                         <button className="btn download-cv h-100">
                             <div className='position-absolute  left-0 z-3 d-flex' style={{ top: '10px' }}>
                                 <span className='me-3'><RiDownloadLine /></span>
