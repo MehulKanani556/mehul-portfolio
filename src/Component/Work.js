@@ -1,13 +1,15 @@
 import React, { useState, useRef } from 'react';
-import restaurent from '../assets/comada.png'
-import food from '../assets/food.png'
+import restaurent from '../assets/res.jpg';
+import jewelry from '../assets/jewelry-web.jpg';
+import photoediting from '../assets/photoediting.jpg';
+import chat from '../assets/chat.png';
 import { HiMiniArrowTopRightOnSquare } from 'react-icons/hi2';
 const Work = () => {
     const works = [
         { title: "Restaurant Dashboard", description: "An intuitive management tool for restaurants, streamlining operations by allowing users to manage menus, track orders, and analyze sales performance from a single platform.", image: restaurent,link:"https://commada.netlify.app/" },
-        { title: "Food Odering", description: "A streamlined platform for ordering food, allowing users to browse menus, place orders, and make secure payments, while administrators manage menu items and user profiles.", image: food,link:"https://food-mehul.netlify.app/" },
-        { title: "Chat Messeger", description: "Real time chat application with authentication and private chat.Also have a feature of group chat , video call , voice call and screen share.", image: restaurent,link:"https://chat-message-2.onrender.com/" },
-        { title: "Photo Editing", description: "A photo editing application that allows users to edit photos with a variety of tools and effects.", image: restaurent,link:"https://photo-editing-mehul.onrender.com/" },
+        { title: "Jewelry Website", description: "An elegant e-commerce platform showcasing exquisite jewelry collections, featuring detailed product views, secure payment processing, and a seamless shopping experience for customers.", image: jewelry, link:"https://food-mehul.netlify.app/" },
+        { title: "Chat Messeger", description: "Real time chat application with authentication and private chat.Also have a feature of group chat , video call , voice call and screen share.", image: chat,link:"https://chat-message-2.onrender.com/" },
+        { title: "Photo Editing", description: "A photo editing application that allows users to edit photos with a variety of tools and effects.", image: photoediting,link:"https://photo-editing-mehul.onrender.com/" },
     ];
 
   const CardWithTilt = ({ work, index }) => {
