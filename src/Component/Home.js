@@ -38,8 +38,8 @@ function Home() {
 
     const handleDownload = () => {
         const link = document.createElement('a');
-        link.href = '/Mehul_Kanani_Resume.pdf';
-        link.download = 'Mehul_Kanani_Resume.pdf';
+        link.href = '/mk.pdf';
+        link.download = 'mk.pdf';
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);

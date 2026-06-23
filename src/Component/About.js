@@ -31,16 +31,16 @@ const About = () => {
         },
         {
             id: 2,
-            text: "I began my journey as a web developer in 2021, and since then, I've continued to grow and evolve as a developer, taking on new challenges and learning the latest technologies along the way. I'm building cutting-edge web applications using modern technologies such as Next.js, TypeScript, NestJS, TailwindCSS, Supabase, and much more."
+            text: "I began my journey as a web developer in 2021, and since then, I've continued to grow and evolve as a developer, taking on new challenges and learning the latest technologies along the way. I'm building cutting-edge web applications using modern technologies such as  React.js, TailwindCSS  and much more."
         },
         {
             id: 3,
             text: "I am very much a progressive thinker and enjoy working on products end to end, from ideation all the way to development."
         },
-        {
-            id: 4,
-            text: "When I'm not in full-on developer mode, you can find me hovering around on Twitter or an indie hacker, witnessing the journey of early startups or enjoying some free time. You can follow me on LinkedIn where I share tech-related bites and build in public, or you can follow me on GitHub."
-        },
+        // {
+        //     id: 4,
+        //     text: "When I'm not in full-on developer mode, you can find me hovering around on Twitter or an indie hacker, witnessing the journey of early startups or enjoying some free time. You can follow me on LinkedIn where I share tech-related bites and build in public, or you can follow me on GitHub."
+        // },
         {
             id: 5,
             text: "One last thing, I'm available for freelance work, so feel free to reach out and say hello! I promise I don't bite 😊"
