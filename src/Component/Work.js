@@ -30,7 +30,7 @@ const Work = () => {
       title: "School Management System",
       description: "A complete ERP solution for educational institutions with dedicated panels for Super Admin, School Admin, Teachers, Students, Parents, Accountants, Librarians, and Drivers. Features student admissions, attendance tracking, timetable management, fee collection, payroll, library operations, GPS-enabled transport tracking, notifications, and advanced analytics.",
       image: school,
-      link: "https://school-management-system-mawl.onrender.com"
+      link: "https://school-management-system-1-6510.onrender.com"
     },
     {
       title: "Clothing E-commerce",
