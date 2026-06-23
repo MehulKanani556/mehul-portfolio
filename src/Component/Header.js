@@ -28,13 +28,17 @@ const Header = () => {
     }, []);
 
     const handleNavClick = (sectionId) => {
+        console.log("handleNavClick called with:", sectionId);
         const element = document.getElementById(sectionId);
+        console.log("Found element:", element);
         if (element) {
-            window.scrollTo({
-                top: element.offsetTop - 60,
-                behavior: 'smooth'
+            element.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
             });
             setIsMenuOpen(false);
+        } else {
+            console.warn("No element found with id:", sectionId);
         }
     };
 
@@ -56,7 +60,7 @@ const Header = () => {
                         {['Home', 'About', 'Skills', 'Work', 'Contact'].map((section) => (
                             <li className="nav-item" key={section}>
                                 <button
-                                    onClick={() => handleNavClick(section.toLowerCase())}
+                                    onClick={() => handleNavClick(section)}
                                     className={`nav-link ${activeLink === section ? 'active' : ''}`}
                                 >
                                     {section}
