@@ -42,7 +42,7 @@ function Home() {
         link.href = mkPdf;
         link.download = 'Mehul Kanani (Full Stack Developer).pdf';
         document.body.appendChild(link);
-        link.click();s
+        link.click();
         document.body.removeChild(link);
         
     };
