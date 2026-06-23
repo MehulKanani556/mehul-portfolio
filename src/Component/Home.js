@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'; // Added useEffect and useState
 import { RiDownloadLine } from 'react-icons/ri';
+import mkPdf from '../assets/mk.pdf';
 function Home() {
     const [displayedText, setDisplayedText] = useState('I am '); // Initial text
     const fullText1 = " Mehul Kanani"; // First text to display
@@ -38,8 +39,8 @@ function Home() {
 
     const handleDownload = () => {
         const link = document.createElement('a');
-        link.href = '/mk.pdf';
-        link.download = 'mk.pdf';
+        link.href = mkPdf;
+        link.download = 'Mehul Kanani (Full Stack Developer).pdf';
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
