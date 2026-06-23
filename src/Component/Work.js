@@ -18,25 +18,25 @@ const Work = () => {
       title: "OTT Platform",
       description: "A full-featured video streaming platform with seamless HLS video playback, watchlists, premium content access control, secure authentication, and optimized performance using Redis caching. Built to deliver a modern Netflix-like viewing experience.",
       image: ott,
-      link: "#"
+      link: "https://ott-platform-1-wlrw.onrender.com"
     },
     {
       title: "Bhadepey",
       description: "A comprehensive rental property management system featuring Tenant, Owner, and Super Admin panels. Includes KYC verification, automated billing, payment processing, property management, and role-based access control for streamlined rental operations.",
       image: bhadepey,
-      link: "#"
+      link: "https://bhadapay.onrender.com"
     },
     {
       title: "School Management System",
       description: "A complete ERP solution for educational institutions with dedicated panels for Super Admin, School Admin, Teachers, Students, Parents, Accountants, Librarians, and Drivers. Features student admissions, attendance tracking, timetable management, fee collection, payroll, library operations, GPS-enabled transport tracking, notifications, and advanced analytics.",
       image: school,
-      link: "#"
+      link: "https://school-management-system-mawl.onrender.com"
     },
     {
       title: "Clothing E-commerce",
       description: "A scalable fashion e-commerce platform with advanced product management, size and color variants, secure Stripe payments, discount and coupon systems, order tracking, wishlist functionality, OTP-based authentication, PDF invoice generation, real-time notifications, and a powerful admin dashboard.",
       image: clothing,
-      link: "#"
+      link: "https://clothing-td68.onrender.com"
     }
   ];
 
